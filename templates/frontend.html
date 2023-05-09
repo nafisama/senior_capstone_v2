@@ -30,12 +30,13 @@
 					header {
 					  border-bottom: 1px solid #0d122b;
 					  margin-bottom: 2em;
+					  text-align: center;
 					}
 					main {
 					  flex-grow: 2;
 					  display: flex;
 					  justify-content: space-around;
-					  align-items: center;
+					  align-items: right;
 					  background-color: #fff;
 					  border-radius: 12px;
 					  margin-bottom: 2em;
@@ -118,18 +119,19 @@
 					}
 					footer {
 					  border-top: 1px solid #0d122b;
-					  text-align: center;
+					  text-align: right;
 					}
     </style>
   </head>
       <body>
 
           <header>
-              <h1>Text to Speech</h1>
+              <h1>SIGN to Speech</h1>
           </header>
 
         <main>
           <form class="input" id="voice-form" method="post">
+			<h2 class="mt-5">VOICE PART </h2>
                 <div class="field">
                     <label for="speech">Type Something</label>
                     <input type="text" name="speech" id="speech" required />
@@ -145,11 +147,28 @@
                     Say it!
               </button>
           </form>
+		  <div class="container">
+			<div class="row">
+				<div class="col-lg-8  offset-lg-2">
+					
+					<h2 class="mt-5">CAMERA CAPTURE</h2>
+					<form method="post" action="{{ url_for('tasks') }}">
+					<input type="submit" value="Stop/Start" name="stop" />
+					<input type="submit" value="Capture" name="click"/>
+					</form>
+					<img src="{{ url_for('video_feed') }}" height="80%">
+					<h3 style="font-family:courier;">Instructions:</h3>
+					<ol style="font-family:courier;">
+					<li>Stop/Start--Toggle between stop or start live streaming</li>
+					<li>Capture--Take still-shot and save in the 'shots' directory</li>
+				</div>
+			</div>
+		</div>
         </main>
 
         <footer>
             <p>
-                Built by <a href="https://dev.to/siddheshshankar">Siddhesh Shankar</a>
+                Template Inspired by <a href="https://dev.to/siddheshshankar">Siddhesh Shankar</a>
             </p>
         </footer>
 
